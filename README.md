@@ -65,6 +65,6 @@ Access Time Measurements
 2. **Access Loop**: The program accesses all the elements in the list, starting from the first node and following the links. The access pattern depends on the stride.
 3. **Time Measurement**: The time taken to access all nodes for each stride is measured using `chrono`. The program runs the access loop for multiple trials to get a stable measurement.
 4. **Formatted Output**: The results are printed in a tabular format, where each row corresponds to a stride size and the time taken for that stride.
-5. 
+
 # Conclusion
 This program provides valuable insight into how different stride sizes affect memory access time when traversing a linked list. By experimenting with various stride values, you can observe the impact of memory access patterns on performance. Understanding these access patterns is important for optimizing code, especially when working with large datasets or memory-intensive applications.
