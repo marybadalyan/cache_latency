@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <iomanip>  // For formatting output
 
 const int ARRAY_SIZE = 1024 * 256; // 256MB (~64 million elements)
 const int NUM_TRIALS = 1000;
@@ -40,12 +41,23 @@ void measure_access_time(int stride) {
     // Convert the duration from nanoseconds to milliseconds
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
-    std::cout << "Stride: " << stride << ", Total Time: " << duration.count() << " milliseconds\n";
+    // Printing the results in a compact table with stride and time side by side
+    std::cout << "| " << std::setw(10) << stride << " | " << std::setw(16) << duration.count() << " |" << std::endl;
 }
 
 int main() {
+    std::cout << "Access Time Measurements\n";
+    
+    // Print the header for the table
+    std::cout << "+------------+------------------+" << std::endl;
+    std::cout << "|   Stride   | Total Time (ms)  |" << std::endl;
+    std::cout << "+------------+------------------+" << std::endl;
+
+    // Loop through strides and print results in a compact way
     for (int stride = 1; stride <= 1024; stride *= 4) {
         measure_access_time(stride);
+        std::cout << "+------------+------------------+" << std::endl;  // Row divider
     }
+
     return 0;
 }
