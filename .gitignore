@@ -1,8 +1,1 @@
 build
-main.exe
-main.obj
-main.ilk
-main.pdb
-vc140.pdb
-.vscode/settings.json
-.vscode/tasks.json
